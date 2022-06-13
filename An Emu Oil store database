@@ -1,0 +1,27 @@
+--Creating a specialty store database
+
+CREATE TABLE store(id integer primary key, item TEXT, function TEXT, cost INTEGER, price INTEGER);
+INSERT INTO store VALUES 
+(1, "2oz Emu Oil", "skin", 4, 20), 
+(2, "4oz Emu Oil", "skin", 8, 35), 
+(3, "8oz Emu Oil", "skin", 12, 60), 
+(4, "6oz Comfort Rub", "pain relief", 10, 30), 
+(5, "12oz Comfort Rub", "pain relief", 20, 50),
+(6, "Emu Oil Chapstick", "skin", 2, 7),
+(7, "Pack of 6 Emu Oil Chapstick", "skin", 12, 30),
+(8, "Anti Wrinkle Serum", "skin", 13, 30),
+(9, "Facial Lift", "skin", 4, 12),
+(10, "Facial Wash", "skin", 4, 12),
+(11, "Emu Oil Capsules", "health", 20, 30);
+
+-- displaying from database ordered by price.
+SELECT * FROM store 
+ORDER BY price;
+
+-- Specifically for pain relief?
+SELECT * FROM store 
+WHERE function = "pain relief";
+
+-- What are the 5 most profitable items?
+SELECT name, SUM(price-cost) AS profit FROM store 
+GROUP BY name ORDER BY profit DESC LIMIT 5
