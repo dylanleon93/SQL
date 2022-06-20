@@ -14,7 +14,7 @@ Insert Into Comedians (name, dob, loc_born) Values
 ("Andrew Santino", "1983-10-16", "Illinois"),
 ("Chris DiStefano", "1984-08-26", "New York"),
 ("Theo Von", "1980-03-19", "Louisiana");
-
+ 
 Create Table Comedy_Specials (id Integer Primary Key AUTOINCREMENT, title TEXT, platform TEXT);
 
 Insert Into Comedy_Specials (title, platform) VALUES
