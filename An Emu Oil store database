@@ -1,7 +1,7 @@
 --Creating a specialty store database
 
-CREATE TABLE store(id integer primary key, item TEXT, function TEXT, cost INTEGER, price INTEGER);
-INSERT INTO store VALUES 
+CREATE TABLE store(id integer primary key, name TEXT, category TEXT, cost INTEGER, price INTEGER);
+Insert Into store VALUES 
 (1, "2oz Emu Oil", "skin", 4, 20), 
 (2, "4oz Emu Oil", "skin", 8, 35), 
 (3, "8oz Emu Oil", "skin", 12, 60), 
@@ -14,14 +14,23 @@ INSERT INTO store VALUES
 (10, "Facial Wash", "skin", 4, 12),
 (11, "Emu Oil Capsules", "health", 20, 30);
 
--- displaying from database ordered by price.
-SELECT * FROM store 
-ORDER BY price;
+--Show pain relief items only.
 
--- Specifically for pain relief?
-SELECT * FROM store 
-WHERE function = "pain relief";
+Select * FROM store WHERE category = "pain relief";
 
--- What are the 5 most profitable items?
-SELECT name, SUM(price-cost) AS profit FROM store 
-GROUP BY name ORDER BY profit DESC LIMIT 5
+-- Select the 5 most profitable items
+Select name, sum(price-cost) as profit FROM store group by name ORDER BY profit desc LIMIT 5;
+
+-- What is the average item profit for each category?
+
+Select category, avg(price-cost) as profit FROM store 
+GROUP BY category
+ORDER BY profit desc;
+
+-- What is the cheapest costing item in each category?
+
+SELECT name, category, min(cost) FROM  store
+GROUP BY category
+ORDER BY cost asc;
+
+
