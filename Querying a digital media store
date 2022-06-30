@@ -75,4 +75,4 @@ JOIN chinook.customers ON  customers.supportrepid = employees.employeeid
 WHERE employees.title LIKE "%sales%agent%"
 AND invoices.invoicedate LIKE "2009%"
 GROUP BY employees.firstname
-ORDER BY ROUND(SUM(invoices.total)) DESC LIMIT 1;
+ORDER BY ROUND(SUM(invoices.total)) DESC LIMIT 1; 
