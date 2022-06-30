@@ -100,7 +100,7 @@ comedians ON comedians.id = comedian_id
 JOIN comedy_specials ON comedy_specials.id = comedy_special_id
 ORDER BY comedians.name;
 
---Which comedians are on more than 1 podcast.
+--Which comedians are on more than 1 podcast. 
 
 Select comedians.name, COUNT(comedy_podcasts.podcast) as "number of podcasts" FROM comedian_podcasts
 JOIN comedians ON comedians.id = comedian_id
