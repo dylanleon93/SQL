@@ -130,9 +130,9 @@ group by studio HAVING avg(domestic) > 300;
 
 SELECT rank, title,
 CASE
-    WHEN rank < 11 THEN "S tier"
-    WHEN rank > 0 AND rank < 26 THEN "A tier"
-    WHEN rank > 0 AND rank < 51 THEN "B tier"
+    WHEN rank <= 10 THEN "S tier"
+    WHEN rank > 10 AND rank <= 25 THEN "A tier"
+    WHEN rank > 25 AND rank <= 50 THEN "B tier"
     ELSE "C tier"
     END as "Rank_Tier"
 from topmovies;
