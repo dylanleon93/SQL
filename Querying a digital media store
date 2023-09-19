@@ -62,16 +62,16 @@ JOIN chinook.genres ON tracks.genreid = genres.genreid
 -- Show total sales made by each sales agent
 
 Select employees.FirstName, Employees.LastName, ROUND(sum(invoices.total)) as "Total Sales" FROM chinook.employees
-JOIN chinook.invoices ON invoices.customerid = customers.customerid
 JOIN chinook.customers ON  customers.supportrepid = employees.employeeid
+JOIN chinook.invoices ON invoices.customerid = customers.customerid
 WHERE employees.title LIKE "%sales%agent%"
 GROUP BY employees.firstname;
 
 -- Which agent made most sales in 2009?
 
 Select employees.FirstName, Employees.LastName, ROUND(sum(invoices.total)) as "Total Sales" FROM chinook.employees
-JOIN chinook.invoices ON invoices.customerid = customers.customerid
 JOIN chinook.customers ON  customers.supportrepid = employees.employeeid
+JOIN chinook.invoices ON invoices.customerid = customers.customerid
 WHERE employees.title LIKE "%sales%agent%"
 AND invoices.invoicedate LIKE "2009%"
 GROUP BY employees.firstname
